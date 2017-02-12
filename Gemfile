@@ -8,10 +8,12 @@ gem 'sqlite3'
 gem 'tux'
 gem 'rake'
 gem 'require_all'
+gem 'pry'
+gem 'shotgun'
+
 
 group :test do
   gem 'rspec'
-  gem 'pry'
   gem 'pry-nav'
   gem 'capybara'
   gem 'rack-test'
