@@ -1,6 +1,5 @@
 <%= @recipes.each do |recipe| %>
-  <li>Name: <% recipe.name %></li>
-  <li>Ingredients: <% recipe.ingredients %></li>
-  <li>Cook Time: <% recipe.cook_time %></li>
-  <br>
+  <%= recipe.name %>
+  <%= recipe.ingredients %>
+  <%= recipe.cook_time %>
 <% end %>
