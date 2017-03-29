@@ -3,15 +3,15 @@ source 'http://rubygems.org'
 gem 'activerecord', :require => 'active_record'
 gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
 
-gem 'sinatra'
+gem 'sinatra', '2.0.0.rc2'
 gem 'sqlite3'
 gem 'tux'
 gem 'rake'
+gem 'pry'
 gem 'require_all'
 
 group :test do
   gem 'rspec'
-  gem 'pry'
   gem 'pry-nav'
   gem 'capybara'
   gem 'rack-test'
