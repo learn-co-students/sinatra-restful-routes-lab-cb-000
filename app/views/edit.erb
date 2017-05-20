@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+
+    <meta charset="utf-8">
+
+    <title>CRUD</title>
+
+    <link type='text/css' rel='stylesheet' href='/stylesheets/style.css' />
+
+  </head>
+
+  <body>
+
+
+
+    <h3><%= @recipe.name %></h3>
+
+    <p><%= @recipe.ingredients %></h3>
+    <p><%= @recipe.cook_time %></h3>
+    <h4>Use the form below to edit</h4>
+
+    <form method='post' action='/recipes/<%= @recipe.id %>'>
+
+       <input id="hidden" type="hidden" name="_method" value="patch">
+
+      <label for="recipe_name">Recipe Name:
+
+        <input type="text" id="recipe_name" name="name">
+
+      </label>
+
+      <label for="recipe_ingredients">Recipe Ingredients:
+
+        <input type="text" id="recipe_ingredients" name="ingredients"></input>
+
+      </label>
+
+      <label for="recipe_cook_time">Cook Time:
+
+        <input type="text" id="recipe_cook_time" name="cook_time"></input>
+
+      </label>
+
+
+      <input type='submit' value='submit'/>
+
+    </form>
+
+  </body>
+
+</html>
