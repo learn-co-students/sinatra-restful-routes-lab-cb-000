@@ -1,0 +1,15 @@
+<html>
+  <body>
+    <p><a href='/recipes/new'>Click Here to Add a recipe!</a></p>
+    <% Recipe.all.each do |e| %>
+      <p><h1><%= "#{e.name}" %></h1></p>
+      <p><%= "Ingredients: #{e.ingredients}" %></p>
+      <p><%= "Cook Time: #{e.cook_time}" %></p>
+      <p><a href='/recipes/<%= e.id %>'>Click Here to View this recipe</a></p>
+      <form method='post' action="/recipes/<%= e.id %>/delete">
+        <input id="hidden" type="hidden" name="_method" value="delete">
+        <input type="submit" value="delete">
+      </form>
+    <% end %>
+  </body>
+</html>
