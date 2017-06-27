@@ -1,0 +1,11 @@
+<%= @recipe.name %>
+<%= @recipe.ingredients %>
+<%= @recipe.cook_time %> minutes
+
+<form method="post" action="/recipes/<%= @recipe.id %>">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+  <input type="string" name="name">
+  <input type="string" name="ingredients">
+  <input type="integer" name="cook_time">
+  <input type="submit" value="submit">
+</form>
