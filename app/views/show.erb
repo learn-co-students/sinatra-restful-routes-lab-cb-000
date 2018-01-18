@@ -1,0 +1,17 @@
+<h1><%=@recipe.name %></h1>
+<h2>Ingredients are <%=@recipe.ingredients %></h2>
+<!--How I would have listed ingredients. <ol>
+<% @recipe.ingredients.split(",").each do |ingredient|%>
+  <li><%= ingredient %><li>
+<% end%>
+</ol> -->
+<h2>Cook time is <%=@recipe.cook_time %> </h2>
+
+<form action="/recipes/<%= @recipe.id %>/delete" method="post">
+    <input type="submit" value="delete" id="delete"/>
+    <input id="hidden" type="hidden" name="_method" value="delete">
+</form>
+
+<form action="/recipes/<%= @recipe.id %>/edit" method="get">
+    <input type="submit" value="Update Recipe" id="update"/>
+</form>
