@@ -1,0 +1,7 @@
+Current Recipes:
+<% @recipes.each do |r| %>
+  <%= r.name %><br>
+  <%= r.ingredients %><br>
+  <%= r.cook_time %><br>
+  <%="/recipes/#{r.id}"%><br>
+<% end %>
