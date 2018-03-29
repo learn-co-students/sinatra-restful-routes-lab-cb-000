@@ -17,8 +17,9 @@ class ApplicationController < Sinatra::Base
     erb :new
   end
 
-  post '/posts' do
-   x = Recipe.create(name: params[:name], ingredients: params[:ingredients], cook_time: params[:cook_time])
+  post '/recipes' do
+  #  x = Recipe.create(name: params[:name], ingredients: params[:ingredients], cook_time: params[:cook_time])
+   Recipe.create(name: params[:name], ingredients: params[:ingredients], cook_time: params[:cook_time])
    # create should save it, too, right
    # nada...
    # p 'hi there'
@@ -29,7 +30,7 @@ class ApplicationController < Sinatra::Base
 
   # use x to make redir link
 
-  redirect
+  redirect "/recipes/#{Recipe.last.id}"
  end
 
   get '/recipes/:id' do
@@ -42,6 +43,26 @@ class ApplicationController < Sinatra::Base
     @recipe = Recipe.find(params[:id])
 
     erb :edit
+  end
+
+  patch '/recipes/:id' do
+    # @post = Post.find(params[:id])
+    @recipe = Recipe.find(params[:id])
+
+    @post.name = params[:name]
+    @post.ingredients = params[:ingredients]
+    @post.cook_time = params[:cook_time]
+    @post.save
+
+    erb :show
+  end
+
+  delete '/recipes/:id/delete' do
+    @recipe = Recipe.find(params[:id])
+
+    @recipe.destroy
+    erb :show
+
   end
 
 
