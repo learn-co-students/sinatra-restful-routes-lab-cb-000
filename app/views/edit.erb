@@ -1,0 +1,8 @@
+<form action="/recipes/<%= @recipe.id %>" method="post">
+<input id="hidden" type="hidden" name="_method" value="patch">
+Name: <input type="text" name="name" value="Bomb.com Mac and Cheese" />
+Ingredients: <input type="text" name="ingredients" value="milk, butter, cheese, elbow pasta" />
+Cook Time: <input type="text" name="cook_time" value="20 minutes" />
+<input type="submit" value="submit">
+</form>
+
