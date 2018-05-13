@@ -16,4 +16,4 @@ Recipe.create!([{
     cook_time: "3 minutes"
 }])
 
-puts "Created #{Recipe.count} recipies"
+puts "Created #{Recipe.count} recipes"
