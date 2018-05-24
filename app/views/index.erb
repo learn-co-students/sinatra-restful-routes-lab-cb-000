@@ -1,0 +1,13 @@
+<h1>Welcome to Grandma's Recipes</h1>
+
+<ul>
+  <% @recipes.each do |recipe| %>
+    <li>
+      <h3><a href="/recipes/<%= recipe.id%>"</a><%= recipe.name %></h3>
+      <p>Ingrediants: <%= recipe.ingredients %></p>
+      <p>Cook Time: <%= recipe.cook_time %></p>
+    </li>
+  <% end %>
+</ul>
+
+<p><a href="/recipes/new">Add Recipes</a></p>

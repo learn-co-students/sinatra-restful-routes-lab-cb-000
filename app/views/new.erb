@@ -1,0 +1,23 @@
+<h1>New Grandma's Recipes</h1>
+
+<form action="/recipes" method="POST">
+  <%#
+  Name: <input type="text" name="name">
+  Ingredients: <input type="text" name="ingredients">
+  Cook Time: <input type="text" name="cook_time">
+  %>
+
+  <label for="name">Name</label>
+  <input id="name" type="text" name="name" /><br>
+
+  <label for="ingredients">Ingredients</label>
+  <textarea id="ingredients" type="text" name="ingredients" rows="2" cols="60"></textarea><br>
+
+  <label for="cook_time">Cook Time</label>
+  <input id="cook_time" type="text" name="cook_time" /><br>
+
+  <input type="submit" id="submit" name="submit" value="Submit">
+</form>
+
+
+<p><a href="/recipes">Return to list of recipes</a></p>
