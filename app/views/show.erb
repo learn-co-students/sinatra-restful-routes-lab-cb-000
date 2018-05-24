@@ -3,7 +3,7 @@
 <p>Cook Time: <%= @recipe.cook_time %></p>
 
 <!-- Link to Edit recipe -->
-<p><a href="/recipes/<%= @recipe.id %>/edit">Edit recipe</a></p>
+<p>Please <a href="/recipes/<%= @recipe.id %>/edit">Edit</a> or <a href="/recipes">Return to List Recipes</a></p>
 
 <!-- Delete Recipe button -->
 <form action="/recipes/<%= @recipe.id%>/delete" method="POST">
