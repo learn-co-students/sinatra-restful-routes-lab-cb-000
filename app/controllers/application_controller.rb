@@ -4,41 +4,41 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
   end
 
-  # GET /recipes - Route: Index Action
+  #Route: /recipes - Index Action
   get '/recipes' do
     @recipes = Recipe.all
     erb :index
   end
 
-  # GET /recipes/new - Route: New Action
+  #Route: /recipes/new - New Action
   get '/recipes/new' do
     erb :new
   end
 
-  # POST /recipes - Route: Create Action
+  #Route: /recipes - Create Action
   post '/recipes' do
     recipe = Recipe.create(name: params[:name], ingredients: params[:ingredients], cook_time: params[:cook_time])
 
     redirect :"/recipes/#{recipe.id}"
   end
 
-  # GET /recipes/:id - Route: Show Action
+  #Route: /recipes/:id - Show Action
   get '/recipes/:id' do
-    @recipe = Recipe.find(params[:id])
+    @recipe = Recipe.find_by_id(params[:id])
 
     erb :show
   end
 
-  # /recipes/:id/edit - Route: Edit Action
+  #Route: /recipes/:id/edit - Edit Action
   get '/recipes/:id/edit' do
-    @recipe = Recipe.find(params[:id])
+    @recipe = Recipe.find_by_id(params[:id])
 
     erb :edit
   end
 
-  # PATCH /recipes/:id - Route: Edit Action
+  #Route: /recipes/:id - Update Action
   patch '/recipes/:id' do
-    recipe = Recipe.find(params[:id])
+    recipe = Recipe.find_by_id(params[:id])
     recipe.name = params[:name]
     recipe.ingredients = params[:ingredients]
     recipe.cook_time = params[:cook_time]
@@ -47,9 +47,9 @@ class ApplicationController < Sinatra::Base
     redirect :"/recipes/#{recipe.id}"
   end
 
-  # DELETE /recipes/:id/delete - Route: Delete Action
+  #Route: /recipes/:id/delete - Delete Action
   delete '/recipes/:id/delete' do
-    @recipe = Recipe.find(params[:id])
+    @recipe = Recipe.find_by_id(params[:id])
     @recipe.destroy
 
     erb :delete
