@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "Recipe App" do
   let(:recipe_name) { "Bomb.com Mac and Cheese" }
   let(:recipe_ingredients) { "milk, butter, cheese, elbow pasta" }
-  let(:recipe_cook_time) { "20 minutes" }
+  let(:recipe_cook_time) { "20.0" }
 
   before do
     @recipe1 = Recipe.create(:name => recipe_name, :ingredients => recipe_ingredients, :cook_time => recipe_cook_time)
@@ -139,7 +139,7 @@ describe "Recipe App" do
       expect(page.current_path).to eq("/recipes/#{@cookie.id}")
       expect(page).to have_content("Double chocolate chip cookies")
       expect(page).to have_content("chocolate chips, flour, sugar, butter, cocoa powder")
-      expect(page).to have_content("30 minutes")
+      expect(page).to have_content("30.0")
     end
   end
 
