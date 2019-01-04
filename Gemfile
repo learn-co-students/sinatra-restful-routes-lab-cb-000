@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'activerecord', '4.2.5', :require => 'active_record'
+gem 'activerecord', :require => 'active_record'
 gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
 
 gem 'sinatra'
@@ -12,6 +12,9 @@ gem 'shotgun'
 gem 'json'
 
 group :test do
+  gem 'pry-byebug'
+  gem 'pry-rails'
+  gem 'pry-rescue'
   gem 'rspec'
   gem 'pry'
   gem 'pry-nav'
