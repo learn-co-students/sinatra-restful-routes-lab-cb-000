@@ -20,6 +20,25 @@ class ApplicationController < Sinatra::Base
     erb :"recipe/index"
   end
 
+  # Create new recipes
+  get '/recipes/new' do
+    erb :"recipe/new"
+  end
+
+  post '/recipes/new' do
+    data = ["name", "ingredients", "cook_time"]
+
+    data.each do |data|
+      if params[data.to_sym].empty?
+        erb :"recipe/error"
+      end
+    end
+
+    @recipe.create(name: params[:name], ingredients: params[:ingredients], cook_time: params[:cook_time])
+
+    redirect '/recipes'
+  end
+
   get '/recipes/:id' do
     @recipe = Recipe.find(params[:id])
 
@@ -57,4 +76,5 @@ class ApplicationController < Sinatra::Base
 
     redirect "/recipes/#{@recipe.id}"
   end
+
 end
