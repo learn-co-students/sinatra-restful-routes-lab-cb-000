@@ -11,6 +11,7 @@ gem 'require_all'
 gem 'shotgun'
 gem 'json'
 gem 'rb-readline'
+
 group :test do
   gem 'pry-byebug'
   gem 'pry-rails'
