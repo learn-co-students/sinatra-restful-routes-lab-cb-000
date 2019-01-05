@@ -41,8 +41,20 @@ class ApplicationController < Sinatra::Base
   end
 
   patch '/recipes/:id' do
-    data = ["name"]
+    data = ["name", "ingredients", "cook_time"]
     @recipe = Recipe.find(params[:id])
 
+    data.each do |data|
+      if params[data.to_sym].empty?
+        erb :"recipe/error"
+      end
+    end
+
+    @recipe.name = params[:name]
+    @recipe.ingredients = params[:ingredients]
+    @recipe.cook_time = params[:cook_time]
+    @recipe.save
+
+    redirect "/recipes/#{@recipe.id}"
   end
 end
