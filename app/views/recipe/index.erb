@@ -3,5 +3,8 @@
 <h2><a href="/recipes/<%= recipe.id %>"><%= recipe.name %></a></h2>
 <h3>Ingredients: <%= recipe.ingredients %></h3>
 <h4>Duration: <%= recipe.cook_time %></h4>
+<form method="GET" action="/recipes/<%= recipe.id %>/edit">
+  <input type="submit" value="Edit Recipe">
+</form>
 <br>
 <% end %>

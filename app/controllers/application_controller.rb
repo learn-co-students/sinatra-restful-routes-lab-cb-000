@@ -9,6 +9,7 @@ class ApplicationController < Sinatra::Base
     set :session_secret, "password_security"
   end
 
+  # Show page
   get '/' do
     redirect '/recipes'
   end
@@ -16,18 +17,32 @@ class ApplicationController < Sinatra::Base
   get '/recipes' do
     @recipes = Recipe.all
 
-    erb :index
+    erb :"recipe/index"
   end
 
   get '/recipes/:id' do
     @recipe = Recipe.find(params[:id])
 
-    erb :recipe
+    erb :"recipe/recipe"
   end
 
+  # Delete Recipe
   delete '/recipes/:id' do
     Recipe.find(params[:id]).delete
 
-    redirect '/recipies'
+    redirect '/recipes'
+  end
+
+  # Edit Page
+  get '/recipes/:id/edit' do
+    @recipe = Recipe.find(params[:id])
+
+    erb :"recipe/edit"
+  end
+
+  patch '/recipes/:id' do
+    data = ["name"]
+    @recipe = Recipe.find(params[:id])
+
   end
 end
